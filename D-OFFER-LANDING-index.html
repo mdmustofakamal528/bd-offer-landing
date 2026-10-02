@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ফ্রী ইন্টারনেট ও মিনিট অফার</title>
+  <meta name="description" content="বাংলালিংক, গ্রামীণফোন, রবি ও এয়ারটেল অফার">
+  <style>
+    *{box-sizing:border-box}
+    html,body{margin:0;padding:0}
+    body{
+      font-family:"Noto Sans Bengali","Hind Siliguri",Arial,sans-serif;
+      background:
+        radial-gradient(circle at 15% 12%, rgba(255,255,255,.75) 0 3px, transparent 4px),
+        radial-gradient(circle at 84% 22%, rgba(255,255,255,.7) 0 3px, transparent 4px),
+        linear-gradient(180deg,#ffd9e8 0%,#f8c9df 48%,#ffe5ee 100%);
+      background-size:150px 150px,190px 190px,100% 100%;
+      min-height:100vh;
+      color:#111;
+      overflow-x:hidden;
+    }
+
+    .side-pattern{
+      position:fixed; inset:0;
+      pointer-events:none;
+      opacity:.16;
+      background:
+        radial-gradient(ellipse at 8% 18%, #f8b54d 0 28px, transparent 29px),
+        radial-gradient(ellipse at 92% 18%, #f8b54d 0 28px, transparent 29px),
+        radial-gradient(circle at 8% 18%, #7c3f20 0 8px, transparent 9px),
+        radial-gradient(circle at 92% 18%, #7c3f20 0 8px, transparent 9px);
+      background-size:260px 260px;
+      background-position:0 0,100% 0,0 0,100% 0;
+    }
+
+    .page{
+      width:min(470px,94vw);
+      margin:0 auto;
+      position:relative;
+      z-index:1;
+      padding:14px 10px 30px;
+    }
+
+    .hero{
+      border:3px solid #f5d77d;
+      border-radius:24px;
+      padding:8px;
+      background:rgba(247,255,252,.94);
+      box-shadow:0 7px 25px rgba(45,35,55,.25);
+    }
+
+    .hero-title{
+      background:linear-gradient(#39d8d0,#078a86);
+      color:white;
+      border-radius:15px;
+      text-align:center;
+      padding:12px 8px;
+      font-size:24px;
+      font-weight:900;
+      text-shadow:1px 2px 2px #145d5d;
+      box-shadow:inset 0 2px 0 rgba(255,255,255,.55),0 4px 8px rgba(0,0,0,.18);
+    }
+
+    .notice{
+      margin-top:10px;
+      background:linear-gradient(180deg,#fffaf9,#eee4e4);
+      border-radius:15px;
+      padding:15px 12px;
+      text-align:center;
+      font-size:18px;
+      font-weight:800;
+      line-height:1.55;
+      border:1px solid #ddd;
+      box-shadow:inset 0 1px 7px rgba(0,0,0,.08);
+    }
+
+    .timer{
+      width:240px;
+      margin:12px auto 10px;
+      padding:8px 10px;
+      border-radius:18px;
+      background:linear-gradient(#34485b,#07121d);
+      border:3px solid #6e8190;
+      display:flex;
+      justify-content:center;
+      gap:7px;
+      color:#fff;
+      box-shadow:0 5px 10px rgba(0,0,0,.28);
+    }
+    .timebox{text-align:center;min-width:58px}
+    .num{font-size:25px;font-weight:900;color:#ffe06a;line-height:1}
+    .label{font-size:10px;color:#dbe6ed;margin-top:4px}
+
+    .section-title{
+      text-align:center;
+      color:#00c83f;
+      font-size:21px;
+      font-weight:900;
+      margin:10px 0 7px;
+      text-shadow:0 1px #fff;
+    }
+
+    .offer{
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      gap:8px;
+      width:100%;
+      min-height:59px;
+      margin:10px 0;
+      padding:9px 12px;
+      border-radius:17px;
+      color:#fff;
+      text-decoration:none;
+      font-size:20px;
+      font-weight:900;
+      text-align:center;
+      line-height:1.25;
+      border:2px solid rgba(255,255,255,.55);
+      box-shadow:0 5px 9px rgba(0,0,0,.24), inset 0 2px 4px rgba(255,255,255,.4);
+      transition:transform .12s ease, filter .12s ease;
+    }
+    .offer:hover{transform:translateY(-1px);filter:brightness(1.05)}
+    .offer:active{transform:scale(.99)}
+
+    .teal{background:linear-gradient(#31d8cd,#008b91)}
+    .blue{background:linear-gradient(#5cc8ff,#0879c9)}
+    .pink{background:linear-gradient(#ff6287,#cf003d)}
+    .orange{background:linear-gradient(#ffd05b,#d47a00)}
+    .green{background:linear-gradient(#4be1d5,#007e8a)}
+    .badge{
+      flex:0 0 auto;
+      border:1px solid rgba(255,255,255,.8);
+      border-radius:50px;
+      padding:4px 7px;
+      font-size:11px;
+      background:rgba(0,0,0,.08);
+    }
+
+    .footer-note{
+      margin-top:13px;
+      padding:15px 12px;
+      border-radius:15px;
+      background:rgba(255,255,255,.78);
+      border:1px solid #ddd;
+      text-align:center;
+      font-size:16px;
+      font-weight:800;
+      line-height:1.55;
+    }
+
+    .small{
+      text-align:center;
+      font-size:12px;
+      color:#555;
+      margin-top:12px;
+    }
+
+    @media(max-width:360px){
+      .hero-title{font-size:20px}
+      .offer{font-size:17px}
+      .notice{font-size:16px}
+    }
+  </style>
+</head>
+<body>
+  <div class="side-pattern"></div>
+
+  <main class="page">
+    <section class="hero">
+      <div class="hero-title">🎁 সকল সিমের এক্সক্লুসিভ ডিল</div>
+
+      <div class="notice">
+        আপনার পছন্দের অফারটি নির্বাচন করুন<br>
+        এবং পরবর্তী ধাপ সম্পন্ন করুন।
+      </div>
+
+      <div class="timer" aria-label="অফার টাইমার">
+        <div class="timebox"><div class="num" id="h">00</div><div class="label">HOURS</div></div>
+        <div class="num">:</div>
+        <div class="timebox"><div class="num" id="m">02</div><div class="label">MINUTES</div></div>
+        <div class="num">:</div>
+        <div class="timebox"><div class="num" id="s">00</div><div class="label">SECONDS</div></div>
+      </div>
+
+      <div class="section-title">সকল ইন্টারনেট অফার</div>
+
+      <!-- শুধু href-এর URL পরিবর্তন করবেন -->
+      <a class="offer teal" href="https://offers.bdoffer.online/?utm_medium=b2a5a2c9c3a242117d84a4b7c865fe045e91eb3f&utm_campaign=dfghsdfg" target="_blank" rel="noopener">
+        বাংলালিংক ২৫ জিবি ফ্রী ইন্টারনেট <span class="badge">25GB</span>
+      </a>
+
+      <a class="offer blue" href="https://offers.bdoffer.online/?utm_medium=b2a5a2c9c3a242117d84a4b7c865fe045e91eb3f&utm_campaign=dfghsdfg" target="_blank" rel="noopener">
+        গ্রামীণ ২৫ জিবি ফ্রী ইন্টারনেট <span class="badge">25GB</span>
+      </a>
+
+      <a class="offer pink" href="https://offers.bdoffer.online/?utm_medium=b2a5a2c9c3a242117d84a4b7c865fe045e91eb3f&utm_campaign=dfghsdfg" target="_blank" rel="noopener">
+        রবি ২৫ জিবি ফ্রী ইন্টারনেট <span class="badge">25GB</span>
+      </a>
+
+      <a class="offer orange" href="https://offers.bdoffer.online/?utm_medium=b2a5a2c9c3a242117d84a4b7c865fe045e91eb3f&utm_campaign=dfghsdfg" target="_blank" rel="noopener">
+        এয়ারটেল ২৫ জিবি ফ্রী ইন্টারনেট <span class="badge">25GB</span>
+      </a>
+
+      <div class="section-title">সকল মিনিট অফার</div>
+
+      <a class="offer green" href="https://offers.bdoffer.online/?utm_medium=b2a5a2c9c3a242117d84a4b7c865fe045e91eb3f&utm_campaign=dfghsdfg" target="_blank" rel="noopener">
+        বাংলালিংক ২০০ মিনিট ফ্রী <span class="badge">200M</span>
+      </a>
+
+      <a class="offer blue" href="https://offers.bdoffer.online/?utm_medium=b2a5a2c9c3a242117d84a4b7c865fe045e91eb3f&utm_campaign=dfghsdfg" target="_blank" rel="noopener">
+        গ্রামীণ ২০০ মিনিট ফ্রী <span class="badge">200M</span>
+      </a>
+
+      <div class="footer-note">
+        আপনার অফার সিলেক্ট করে উপরের বক্সে ক্লিক করুন।<br>
+        পরবর্তী পেজে নির্দেশনা অনুসরণ করুন।
+      </div>
+
+      <div class="small">© 2026 • Offer Page</div>
+    </section>
+  </main>
+
+  <script>
+    // Demo countdown — চাইলে সময় পরিবর্তন করতে পারবেন
+    let secondsLeft = 120;
+    const tick = () => {
+      const h = Math.floor(secondsLeft / 3600);
+      const m = Math.floor((secondsLeft % 3600) / 60);
+      const s = secondsLeft % 60;
+      document.getElementById('h').textContent = String(h).padStart(2,'0');
+      document.getElementById('m').textContent = String(m).padStart(2,'0');
+      document.getElementById('s').textContent = String(s).padStart(2,'0');
+      if (secondsLeft > 0) secondsLeft--;
+    };
+    tick();
+    setInterval(tick,1000);
+  </script>
+</body>
+</html>
